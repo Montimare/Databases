@@ -22,7 +22,34 @@ REFERENCES zip (id)
 ON DELETE RESTRICT
 ON UPDATE RESTRICT;
 
+ALTER TABLE person
+DROP FOREIGN KEY fk_person2zip;
+
 INSERT INTO person
-VALUES(null,2,"a","b","2015-01-01",5,"c","d","e");
+VALUES(null,2,"a","b","2015-01-01",5,"c","d","e"),
+	(null,2,"a","b","2015-01-01",5,"c","d","e"),
+	(null,2,"a","b","2015-01-01",5,"c","d","e"),
+	(null,2,"a","b","2015-01-01",5,"c","d","e"),
+	(null,2,"a","b","2015-01-01",5,"c","d","e"),
+	(null,2,"a","b","2015-01-01",5,"c","d","e"),
+	(null,2,"a","b","2015-01-01",5,"c","d","e"),
+	(null,2,"a","b","2015-01-01",5,"c","d","e"),
+	(null,2,"a","b","2015-01-01",5,"c","d","e"),
+	(null,2,"a","b","2015-01-01",5,"c","d","e");
+    
+INSERT INTO person
+VALUES(null,2,"a","b","2015-01-01", (SELECT id FROM zip WHERE zip_code = "12345"),"c","d","e");
+
+INSERT INTO person
+VALUES(null,2,"a","b","2015-01-01", (SELECT id FROM zip WHERE city = "Dresden" LIMIT 1),"c","d","e");
 
 SELECT * FROM person;
+
+DELETE FROM person
+WHERE zip_id NOT IN (SELECT id FROM ZIP); -- deletes everything thats not matching the foreign key
+
+TRUNCATE person;
+
+DELETE
+FROM person
+WHERE id = 10;
