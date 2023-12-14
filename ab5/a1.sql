@@ -1,3 +1,4 @@
+SELECT * FROM zip;
 SELECT zip_code FROM zip;
 -- a)
 SELECT 
