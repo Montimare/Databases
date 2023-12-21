@@ -59,3 +59,5 @@ WHERE gender NOT IN (SELECT id FROM gender);
 
 SELECT * FROM person;
 DESC person;
+
+
