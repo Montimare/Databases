@@ -15,3 +15,28 @@ REFERENCES zip (id)
 ON UPDATE RESTRICT
 ON DELETE RESTRICT
 ;
+
+SELECT * FROM person;
+
+UPDATE person
+SET str_company = str
+;
+
+UPDATE person
+SET zip_company_id = zip_id, tel_company = tel
+;
+
+-- alles was die tabelle selber bearbeiten soll ist alter table
+ALTER TABLE person
+DROP url
+;
+-- alles was die werte in der tabelle angeht ist update
+UPDATE person
+SET company_name = concat(fnam, nnam, id, "GMBH")
+;
+
+ALTER TABLE person
+MODIFY COLUMN company_name VARCHAR(60)
+;
+
+DESC person;
