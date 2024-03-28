@@ -10,6 +10,7 @@ CREATE TABLE `db_ws_23`.`person` (
   `mobil` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`id`));
 
+
 ALTER TABLE person
 MODIFY COLUMN id INT AUTO_INCREMENT; -- KLAUSURRELEVANT WICHTIG, falls vergessen primary key zu setzen
 

@@ -10,6 +10,8 @@ FROM person AS p
 INNER JOIN zip AS z ON p.zip_id = z.id
 ORDER BY z.zip_code, z.city
 ;
+select distinct *
+from person as z;
 
 -- b. Select the attributes zip_code and city of the table zip, which are not used in your table person!
 
